@@ -1,9 +1,9 @@
 .shiki-dark {
-  background: var(--slidev-theme-code-background) !important;
+  background: var(--slidev-theme-code-background);
 }
 
 :not(pre) > code {
-  background: var(--slidev-theme-code-background) !important;
+  background: var(--slidev-theme-code-background);
 }
 
 .shiki-container {

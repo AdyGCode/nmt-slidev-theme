@@ -15,6 +15,7 @@ const props = defineProps({
   >
     <div class="div col-span-3">
       <slot name="title"/>
+      <slot></slot>
     </div>
 
     <div class="col-left col-span-1" :class="props.class">

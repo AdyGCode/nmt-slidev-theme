@@ -2,8 +2,6 @@
   import { computed } from 'vue'
   import { handleBackground } from '@slidev/client/layoutHelper.ts'
 
-  /* import the fontawesome core */
-  import { library } from '@fortawesome/fontawesome-svg-core'
 
   const props = defineProps<{
     imageSrc?: string
@@ -24,12 +22,6 @@
   const flexRow = computed(() => props.position === 'left' ? 'flex-row-reverse' : 'flex-row')
   const textItems = computed(() => props.position === 'left' ? 'items-start' : 'items-end')
   const textAlign = computed(() => props.position === 'left' ? 'text-left' : 'text-right')
-
-  /* import icons and add them to the Library */
-  import { faUserSecret, faThumbsUp, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-  import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-
-  library.add(faUserSecret, faThumbsUp, faFacebook, faEnvelope)
 
 </script>
 
@@ -52,10 +44,10 @@
           </div>
 
           <div class="text-2xl space-y-2 mt-4">
-            <p class="email "><i class="fa-solid fa-envelope"></i>{{ email }}</p>
+            <p class="email "><fa7-solid-envelope /> {{ email }}</p>
             <p class="social social-1">{{ social1 }}</p>
-            <p class="social social-2">{{ social2 }}</p>
-            <p class="social social-3">{{ social3 }}</p>
+            <p class="social social-2"><fa7-solid-globe /> {{ social2 }}</p>
+            <p class="social social-3"><fa7-brands-github /> {{ social3 }}</p>
           </div>
         </div>
       </div>

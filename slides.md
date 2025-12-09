@@ -5,7 +5,7 @@ theme: ./theme
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: ./theme/assets/slidev-background.svg
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: ICTPRG553 Create and Develop REST APIs | Session 05 CORS
 info: ...
 author: Adrian Gould <adrian.gould@nmtafe.wa.edu.au>
 description: TBA
@@ -28,20 +28,22 @@ canvasWidth: 1080
 lineNumbers: true
 ---
 
-# Welcome to Slidev
+# ICTPRG553 REST APIs
 
-Presentation slides for developers
+## Session 05 - CORS
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+A guide to understanding and implementing Cross-Origin Resource Sharing<br> in REST APIs using Laravel.
+
+<div @click="$slidev.nav.next" class="mt-12 ml-12 p-1 px-4 bg-white/10 rounded w-96" hover:bg="black op-30">
+  Press <kbd>Space</kbd> or <kbd>Right-Arrow</kbd> for next page <fa7-solid-arrow-right></fa7-solid-arrow-right>
 </div>
 
 <div class="abs-br m-6 text-xl">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
+    <fa7-solid-edit class="op-50 hover:op-75"/>
   </button>
   <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
+    <fa7-brands-github class="op-50 hover:op-75"></fa7-brands-github>
   </a>
 </div>
 
@@ -52,6 +54,8 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 layout: about-me
+transition: fade-out
+hideInToc: true
 
 helloMsg: Hello there!
 name: Adrian Gould
@@ -66,60 +70,17 @@ social2: "Helpdesk: https://help.screencraft.net.au"
 social3: https://github.com/AdyGCode
 ---
 
+
 ---
 layout: default
 transition: fade-out
 background: ./theme/assets/slidev-background-gray.svg
----
-
-# What is Slidev?
-
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
-transition: slide-up
-level: 2
+hideInToc: true
 ---
 
 # Navigation
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+Hover over the bottom-left corner to see the navigation's control panel.
 
 ## Keyboard Shortcuts
 
@@ -130,719 +91,44 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 | <kbd>up</kbd>                                       | previous slide              |
 | <kbd>down</kbd>                                     | next slide                  |
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
 ---
 layout: two-cols
+transition: fade-out
 background: ./theme/assets/slidev-background-gray.svg
-layoutClass: gap-16
+hideInToc: true
 ---
 
 # Table of contents
 
-You can use the `Toc` component to generate a table of contents for your slides:
+<Toc text-sm minDepth="1" maxDepth="1" />
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
 
 ---
 layout: image-right
+transition: fade-out
 background: ./theme/assets/slidev-background-gray.svg
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Blank page with title
-
----
-layout: one-two-cols
-background: ./theme/assets/slidev-background-gray.svg
----
-
-::title::
-# 1:2 Column Code with Shiki and The unnamed theme
-
-::left::
-The code highlighting is powered by Shiki and [The unnamed - VS Code theme](https://marketplace.visualstudio.com/items?itemName=eliostruyf.vscode-unnamed-theme)
-
-::right::
-```php [php] {none|6-7|8-9|10-11|12-13|all}{maxHeight:'600px'} ts 
-return new class extends Migration {
-
-    public function up(): void
-    {
-        Schema::create('categories', function (Blueprint $table) {
-            // unsigned big integer, autoincrement and PK
-            $table->id();        
-            // string (max-length 64), required   
-            $table->string('title', 64);
-            // string (max-length 255), optional
-            $table->string('description', 255)->nullable();
-            // created_at, updated_at are both created
-            $table->timestamps();
-        });
-    }
-    //...
-}
-```
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.565" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Laravel Folder Structure
-
-We have split this into three sections.
-
-```mermaid {scale: 0.56}
----
-config:
-  flowchart:
----
-flowchart TD
-    A[project-name<br/>Root of Laravel project] 
-    A --> B[**app/**<br/>Core application logic]
-    A --> C[**bootstrap/**<br/>Framework bootstrap files]
-    A --> D[**config/**<br/>Configuration files]
-    A --> E[**database/**<br/>Database migrations, factories, seeders]
-    A --> F[**public/**<br/>Entry point and public assets]
-    
-%% High-contrast color coding
-    style A fill:#ffffff,stroke:#ffffff,color:#000000,stroke-width:2px
-    style B fill:#004d40,stroke:#ffffff,color:#ffffff
-    style C fill:#01579b,stroke:#ffffff,color:#ffffff
-    style D fill:#ff6f00,stroke:#ffffff,color:#ffffff
-    style E fill:#b71c1c,stroke:#ffffff,color:#ffffff
-    style F fill:#263238,stroke:#ffffff,color:#ffffff
-   
-```
-
-```mermaid {scale: 0.56}
----
-config:
-  flowchart:
----
-flowchart TD
-    A[project-name<br/>Root of Laravel project]
-    A --> G[**resources/**<br/>Views, language files, frontend assets]
-    A --> H[**routes/**<br/>Route definitions]
-    A --> I[**storage/**<br/>Logs, cache, compiled views]
-    A --> J[**tests/**<br/>Unit and feature tests]
-    A --> K[**vendor/**<br/>Composer dependencies]
-
-%% High-contrast color coding
-    style A fill:#ffffff,stroke:#ffffff,color:#000000,stroke-width:2px
-    style G fill:#4a148c,stroke:#ffffff,color:#ffffff
-    style H fill:#1a237e,stroke:#ffffff,color:#ffffff
-    style I fill:#37474f,stroke:#ffffff,color:#ffffff
-    style J fill:#212121,stroke:#ffffff,color:#ffffff
-    style K fill:#424242,stroke:#ffffff,color:#ffffff
-```
-
-```mermaid {scale: 0.56}
----
-config:
-flowchart:
-curve: stepBefore
----
-flowchart TD
-    A[project-name<br/>Root of Laravel project]
-    A --> L[**.env**<br/>Environment configuration]
-    A --> M[**artisan**<br/>Laravel CLI tool]
-    A --> N[**composer.json**<br/>PHP dependencies]
-    A --> O[**package.json**<br/>Node dependencies]
-    A --> Z[Other files<br>]
-    
-%% High-contrast color coding
-    style A fill:#ffffff,stroke:#ffffff,color:#000000,stroke-width:2px
-    style L fill:#0d47a1,stroke:#ffffff,color:#ffffff
-    style M fill:#0d47a1,stroke:#ffffff,color:#ffffff
-    style N fill:#0d47a1,stroke:#ffffff,color:#ffffff
-    style O fill:#0d47a1,stroke:#ffffff,color:#ffffff
-    style Z fill:#4d7701,stroke:#ffffff,color:#ffffff
-
-```
-
----
-layout: default
-background: ./theme/assets/slidev-background-gray.svg
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 658,409,92,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="706,395,261,_,81">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
-
----
-layout: center
-class: text-center
----
-
-# Learn More
-
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
-
-
+image: ./theme/assets/CORS.png
 ---
 
 # APIs, CORS and Laravel
 
-![bg right 70% image with text Cross Origin Resource Sharing](../../CORS.png)
+This session introduces <br>**Cross-Origin Resource Sharing** (CORS):
 
-This session introduces <br>**Cross-Origin Resource Sharing** (CORS)
-
-- Theory behind CORS
+- CORS theory
+- Real-world scenarios
 - Handling CORS in Laravel
 - Testing CORS policies
 - HTTP verb: OPTIONS
 - Pre-flight requests
-- Practical Exercises & Research
+- Practical exercises & research
+
 
 ---
-
-# Contents
-
-\_TODO: Needs to be updated
-
-0. [Front Page](Session-5-CORS-Laravel.md#1)
-1. [Acknowledgements](Session-5-CORS-Laravel.md#3)
-2. [CORS](Session-5-CORS-Laravel.md#3)
-3. [Exercise 1](Session-5-CORS-Laravel.md#10)
-4. [CORS and Laravel](Session-5-CORS-Laravel.md#12)
-5. [CORS & Laravel Demo](Session-5-CORS-Laravel.md#22)
-6. [Exercise 2](Session-5-CORS-Laravel.md#24)
-7. [Summary & Closing](Session-5-CORS-Laravel.md#25)
-8. [About the Presenter/Author](Session-5-CORS-Laravel.md#27)
-
----
-
-# Acknowledgements
-
-| **Item**   | **Reference / Disclosure**                                                                       |
-| ---------- | ------------------------------------------------------------------------------------------------ |
-| **Images** | Photo of author by himself; Other images by Adrian Gould                                         |
-| **Icons**  | [Stencil Icons by Icons8 (https://icons8.com)](https://icons8.com)                               |
-| **AI Use** | Some parts of this presentation have been supplemented with use of Microsoft's Copilot AI system |
-
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # Preparation
@@ -853,7 +139,13 @@ Make sure you have:
 - Downloaded a copy of the `session-xx-journal.md` file
 - Renamed the file to `session-05-jounal.md`
 
-# CORS
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+---
+
+# CORS 
 
 ## What is it?
 
@@ -861,10 +153,17 @@ Make sure you have:
 - grants permission to a resource made by a request
 - restricts access to prescribed 'domains'
 
+<small class="text-xs bg-red-900 px-2 py-1 rounded">Many DEVs will say that CORS is a headache...</small>
+
 <!--
-CORS allows web applications to request resources from a different domain than the one that served the web page.
+CORS allows web applications to request resources from a 
+different domain than the one that served the web page.
 -->
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
 ---
 
 # CORS in the Real World
@@ -872,13 +171,13 @@ CORS allows web applications to request resources from a different domain than t
 ## Discussion:
 
 - Have you encountered APIs being blocked due to CORS?
-    - If not, investigate real-world reported issues.
-- Where did you/they encounter the issue?
+    - **If not**, investigate real-world reported issues.<br>&nbsp;
+- Where did you, or they, encounter the issue?
 - How were the CORS issues resolved?
 
-**Duration:** approximately 10 minutes
+<br>
 
-![bg right 30% decorative icon](../../../assets/icons8-stencil/icons8-messaging-96.png)
+<span class="bg-sky-800 py-1 px-2 rounded">Duration: ~10 minutes</span>
 
 <!--
 Emphasise that NO AI should be used in researching this or other questions.
@@ -887,24 +186,30 @@ Explain it will help to distinguish between real and fake information
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # CORS in the Real World - 2
 
-![bg right 20% icon representing the world](../../../assets/icons8-stencil/icons8-geography-96.png)
+### Example Scenarios<br>&nbsp;
 
-### Example Scenarios
-
-- Accessing third-party APIs from a frontend app.
-- Loading fonts, scripts, or images from a CDN.
+- Accessing third-party APIs from a frontend app.<br>&nbsp;
+- Loading fonts, scripts, or images from a CDN.<br>&nbsp;
 - Enabling secure communication between microservices or subdomains.
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # CORS in the Real World - 3
 
-![bg right 20% icon representing the world](../../../assets/icons8-stencil/icons8-geography-96.png)
-
-### Third-Party API Integration in Web Applications
+### Third-Party API Integration in Web Applications<br>&nbsp;
 
 - A frontend web app <br> `https://example-app.com` <br> fetches data from a 3rd party API, `https://api.openweathermap.org`
 
@@ -917,12 +222,15 @@ This allows the weather app to securely access external data without compromisin
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # CORS in the Real World - 4
 
-![bg right 20% icon representing the world](../../../assets/icons8-stencil/icons8-geography-96.png)
-
-### Content Delivery Networks (CDNs) Serving Fonts or Scripts
+### Content Delivery Networks (CDNs) Serving Fonts or Scripts<br>&nbsp;
 
 - A website `https://example.com` <br> uses fonts hosted on a CDN like<br> `https://fonts.googleapis.com`
 
@@ -936,16 +244,20 @@ CoPilot Query (2025-10-30) "give me two examples of the use of CORS in the real 
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+---
 
-# CORS: A Breakdown - 1
+# CORS: A Breakdown
 
-## The Parts of CORS
+## The Parts of CORS<br>&nbsp;
 
-| Component                    | Short Explanation                       |
-| ---------------------------- | --------------------------------------- |
-| **HTTP Headers**             | Servers determine access via headers.   |
-| **Same-Origin Policy (SOP)** | Requests must come from same domain.    |
-| **CORS Mechanism**           | Restrict access from different origins. |
+| <span class="font-bold text-gray-400">Component</span> | <span class="font-bold text-gray-400">Short Explanation</span> |
+|--------------------------------------------------------|----------------------------------------------------------------|
+| **HTTP Headers**                                       | Servers determine access via headers.                          |
+| **Same-Origin Policy (SOP)**                           | Requests must come from same domain.                           |
+| **CORS Mechanism**                                     | Restrict access from different origins.                        |
 
 <!--
 **Same-Origin Policy (SOP):**
@@ -962,12 +274,17 @@ Servers use headers like `Access-Control-Allow-Origin` to indicate which domains
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # CORS: A Breakdown - 2
 
-## The Parts of CORS
+## The Parts of CORS<br>&nbsp;
 
-| Component                     | Short Explanation                                    |
+| <span class="font-bold text-gray-400">Component</span> | <span class="font-bold text-gray-400">Short Explanation</span> |
 | ----------------------------- | ---------------------------------------------------- |
 | **Pre-flight Requests**       | Browser able to "pre-flight check" HTTP Verb access. |
 | **Security Control**          | Helps prevent malicious access to data.              |
@@ -988,32 +305,46 @@ CORS must be enabled and configured on the server hosting the resource.
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+---
 
-# Exercise 1: Step 1
+# Exercise 1
 
 ## Research the following
 
-- Standard HTTP API request sequence.
-- The CORS pre-flight request sequence.
-- Diagrams or Flowcharts for both sequences.
+- Standard HTTP API request sequence.<br>&nbsp;
+- The CORS pre-flight request sequence.<br>&nbsp;
+- Diagrams or Flowcharts for both sequences.<br>&nbsp;
 - The headers involved in CORS.
 
-**Note:** Ensure you have at least two references for each item.
 
-**Duration:** Approximately 20 minutes.
+<span class="bg-red-900 p-1 rounded">**Note:** Ensure you have at least two references for each item.</span>
 
+<span class="bg-sky-800 py-1 px-2 rounded">Duration: ~20 minutes.</span>
+
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # Exercise 1: Step 2
 
 ## Outcomes
 
-- Summarise each of the researched items in the markdown journal
-- Add at least 2 (bibliographic) references for all the above points
-- Use [MyBib.com](https://mybib.com) to make the APA entries
+- Summarise each of the researched items in the markdown journal.<br>&nbsp;
+- Add at least 2 (bibliographic) references for all the above points.<br>&nbsp;
+- Use [MyBib.com](https://mybib.com) to make the APA entries.<br>&nbsp;
 
-**Duration:** Approximately 20 minutes.
+<span class="bg-sky-800 py-1 px-2 rounded">Duration: ~20 minutes.</span>
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
 ---
 
 # CORS in Laravel
@@ -1024,12 +355,19 @@ Previously you may have required:
 
 - `fruitcake/laravel-cors`
 
+Laravel now has CORS support built in.
+
 ## Documentation
 
-Laravel has CORS built in.
+Details from the documentation:
 
 - https://laravel.com/docs/12.x/sanctum#cors-and-cookies
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # CORS in Laravel - 2
@@ -1041,11 +379,17 @@ Laravel has CORS built in.
 ```shell
 php artisan config:publish cors
 ```
+<br>&nbsp;
 
 ## Configuration file
 
-- Set configuration in `config/cors.php`
+- Configuration is located in `config/cors.php`
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # CORS in Laravel - 4
@@ -1053,20 +397,25 @@ php artisan config:publish cors
 ## Configuration options
 
 |                        |                                                         |
-| ---------------------- | ------------------------------------------------------- |
+| ---------------------- |---------------------------------------------------------|
 | `paths`                | Routes where CORS applies (e.g., `api/*`)               |
 | `allowed_methods`      | HTTP methods allowed (e.g., `GET`, `POST`)              |
 | `allowed_origins`      | Domains allowed to access (e.g., `https://example.com`) |
 | `allowed_headers`      | Headers allowed in requests                             |
-| `supports_credentials` | Whether cookies/auth headers are allowed                |
+| `supports_credentials` | Whether cookies or auth headers are allowed         |
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # CORS in Laravel - 5
 
 ## Example File
 
-```php
+```php [php] {none|1,9|2|3|4|5|6|7|8|all}
 return [
     'paths' => ['api/*'],
     'allowed_methods' => ['*'],
@@ -1077,44 +426,111 @@ return [
     'supports_credentials' => false,
 ];
 ```
+<br>&nbsp;
 
-## Provide Access Control Credentials
+### To provide access control credentials
 
 - Update `supports_credentials` to `true`.
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # CORS in Laravel - 6
 
-- Laravel automatically applies CORS
-- Uses middleware to achieve this
-- Applied to Routes in the `api.php` file
-- Manually add as needed
+- Laravel automatically applies CORS. <br>&nbsp;
+- Uses middleware to achieve this functionality. <br>&nbsp;
+- Applied to Routes in the `api.php` file. <br>&nbsp;
+- Manually add as needed.<br>&nbsp;
 
-```php
+```php [php] {none|all}
 Route::middleware(['cors'])->group(function () {
     Route::get('/data', 'ApiController@getData');
 });
 ```
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # CORS in Laravel - 7
 
 ## Testing
 
-- Via tools:
-    - e.g. Postman or Browser developer tools.
-        - Inspect the response headers.
-        - Find `Access-Control-Allow-Origin` in the response.
+Testing is completed via:
 
+- 3rd-party tools:
+    - e.g. Postman or Browser Extension/Developer tools.
+    - Inspect the response headers.
+    - Find `Access-Control-Allow-Origin` in the response.<br>&nbsp;
+- Unit Testing
+  - e.g. PhpUnit, PEST
+
+
+
+---
+layout: two-cols
+background: ./theme/assets/slidev-background-gray.svg
+transition: fade-out
+---
+
+# Exercise 2
+
+::left::
+## Research time
+
+- Using **Postman** (or equivalent), and
+- Testing CORS requests with **Postman**
+
+<br>
+
+You will be broken into small teams...
+- Lecturer will give more detail
+
+::right::
+
+## Instructions
+
+- Identify tutorials and resources to assist <br> you in learning **Postman**.
+- Share what you have found
+- Add details to your `session-05-journal.md`
+- Rememeber to use [MyBib.org](https://mybib.org) to create <br>APA v6 or v7 bibliographic references
+
+<span class="bg-sky-800 py-1 px-2 rounded">Duration: ~20 minutes</span>
+
+
+
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # CORS in Laravel - 8
 
 ## Testing via PEST
 
-```php [php] {all}
+We present some basic examples to assist.
+
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
+
+# CORS in Laravel - 9
+
+## Testing via PEST
+
+```php [php] {none|1-2,|4-8|10,16|11-15|all}
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -1142,12 +558,17 @@ it('includes CORS headers in response', function () {
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
-# CORS in Laravel - 9
+# CORS in Laravel - 10
 
 ## Pre-flight Testing
 
-```php
+```php [php] {none|1-5|7,16|8-11|13-15|all}
 beforeEach(function () {
     Route::middleware('api')->options('/test-cors', function () {
         return response()->json(['message' => 'Preflight OK']);
@@ -1177,24 +598,34 @@ it('responds to preflight OPTIONS request with CORS headers', function () {
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
-# CORS in Laravel - 9
+# CORS in Laravel - 11
 
 ## Pre-flight Testing
 
 With credentials:
 
-- **Must not** use `'*'` for `allowed_origins` when `supports_credentials` is `true`.
-- **Must** specify exact domains.
-- Browser then allows cookies, authorization headers, and other credentials to be sent with cross-origin requests.
+- **Must not** use `'*'` for `allowed_origins` <br> when `supports_credentials` is `true`.<br> &nbsp;
+- **Must** specify exact domains.<br> &nbsp;
+- Browser then allows cookies, authorization headers, and <br> other credentials to be sent with cross-origin requests. 
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
-# CORS in Laravel - 10
+# CORS in Laravel - 12
 
 ### Testing with Credentials
 
-```php
+```php [php] {none|1-7|9,18|10-13|15-17|all}
 use Illuminate\Support\Facades\Route;
 
 beforeEach(function () {
@@ -1221,12 +652,16 @@ TODO: Add details of what the code does
 -->
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+---
 
 # CORS in Laravel - Demo
 
 Small demonstration of CORS within Laravel.
 
-- Code: https://github.com/AdyGCode/tba
+- Code: https://github.com/AdyGCode/tba<br>&nbsp;
 
 ### Setting up
 
@@ -1237,15 +672,20 @@ We follow the standard steps for our development environment at TAFE.
 - Set up environment
 - Run development server
 
+
 ---
-layout: two-cols
+layout: one-two-cols
+background: ./theme/assets/slidev-background-gray.svg
+transition: fade-out
+level: 2
 ---
 
 # CORS in Laravel - Demo 2
 
-Setting up a cloned repository 
+Setting up a cloned repository &hellip;
 
 ::left::
+### Steps 
 
 1. clone the repo            
 2. `cd` into folder            
@@ -1258,8 +698,7 @@ Setting up a cloned repository
 9. run dev server            
 
 ::right::
-
-Commands
+### Commands
 
 ```shell [shell] {none|1-2|3-4|5-6|7-8|9|all}
 git clone https://github.com/adygcode/TBA
@@ -1272,25 +711,19 @@ php artisan key:generate
 php artisan migrate:fresh --seed         
 composer run dev                         
 ```
+<br>&nbsp;
+<small class="bg-sky-950 p-1 rounded ">
+`dev` may be replaced with `dev-win` or `dev-linux` for operating system specific options.
+</small>
 
-
-_`dev` may be replaced with `dev-win` or `dev-linux` for operating system specific options._
 
 ---
-layout: two-cols
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
 ---
 
-# Exercise 2
-
-::left:: 
-## Research the following
-
-- Using POSTMAN (or equivalent) to test <br>requests with CORS
-
-
-::right::
-
-## Practice
+# Practice
 
 - Create a small API (CRUD) for a To-Do API
 - Implement CORS for the API
@@ -1298,6 +731,11 @@ layout: two-cols
     - <small>PEST tests</small>
     - <small>Postman or equivalent</small>
 
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # Exercise 3
@@ -1316,6 +754,11 @@ Add Status to to-do entries
     - <small>Postman or equivalent</small>
 
 ---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
 
 # Recap & Summary
 
@@ -1328,6 +771,13 @@ You and your partner are to:
 - discuss what was learned
 - add details to your individual `session-05-journal.md`
 
+<span class="bg-sky-800 py-1 px-2 rounded">Duration: ~10 minutes</span>
+
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
 ---
 
 # Closing
@@ -1338,8 +788,43 @@ Make sure you have done the following:
 
 - Added commenting to any code to illustrate **your** understanding.
 - Added references relevant to this topic for two or more of the following:
-    - <small>articles</small>,
-    - <small>written tutorials</small>,
-    - <small>video tutorials</small>, and
-    - <small>framework documentation.</small>
+  - articles,
+  - written tutorials,
+  - video tutorials, and
+  - framework documentation.
 - Pushed your code to GitHub for future reference.
+
+
+
+---
+layout: center
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+---
+
+# Laissez les bons temps rouler
+
+<div class="text-2xl mt-18">
+Remember to look at the content that is set as pre-reading before next session.
+</div>
+<div class="text-2xl mt-18">
+A review quiz will be available just before the next session. 
+</div>
+
+<fa7-solid-smile class="text-sky-600 text-3xl mt-6" />
+
+
+---
+layout: default
+transition: fade-out
+background: ./theme/assets/slidev-background-gray.svg
+level: 2
+---
+
+# Acknowledgements
+
+| **Item**   | **Reference / Disclosure**                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------ |
+| **Images** | Photo of author by himself; Other images by Adrian Gould                                         |
+| **Icons**  | [Stencil Icons by Icons8 (https://icons8.com)](https://icons8.com)                               |
+| **AI Use** | Some parts of this presentation have been supplemented with use of Microsoft's Copilot AI system |
